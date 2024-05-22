@@ -1,0 +1,13 @@
+syntax ="proto3";
+
+service MyService {
+  rpc MyMethod(myRequest) returns (myResponse) {}
+}
+
+message myRequest {
+  string request = 1;
+}
+
+message myResponse {
+  string response = 1;
+}
