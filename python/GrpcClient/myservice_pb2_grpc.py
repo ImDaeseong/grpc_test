@@ -39,8 +39,13 @@ class MyServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.MyMethod = channel.unary_unary(
-                '/MyService/MyMethod',
+        self.MyMethod1 = channel.unary_unary(
+                '/MyService/MyMethod1',
+                request_serializer=myservice__pb2.myRequest.SerializeToString,
+                response_deserializer=myservice__pb2.myResponse.FromString,
+                _registered_method=True)
+        self.MyMethod2 = channel.unary_unary(
+                '/MyService/MyMethod2',
                 request_serializer=myservice__pb2.myRequest.SerializeToString,
                 response_deserializer=myservice__pb2.myResponse.FromString,
                 _registered_method=True)
@@ -49,7 +54,13 @@ class MyServiceStub(object):
 class MyServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def MyMethod(self, request, context):
+    def MyMethod1(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def MyMethod2(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -58,8 +69,13 @@ class MyServiceServicer(object):
 
 def add_MyServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'MyMethod': grpc.unary_unary_rpc_method_handler(
-                    servicer.MyMethod,
+            'MyMethod1': grpc.unary_unary_rpc_method_handler(
+                    servicer.MyMethod1,
+                    request_deserializer=myservice__pb2.myRequest.FromString,
+                    response_serializer=myservice__pb2.myResponse.SerializeToString,
+            ),
+            'MyMethod2': grpc.unary_unary_rpc_method_handler(
+                    servicer.MyMethod2,
                     request_deserializer=myservice__pb2.myRequest.FromString,
                     response_serializer=myservice__pb2.myResponse.SerializeToString,
             ),
@@ -75,7 +91,7 @@ class MyService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def MyMethod(request,
+    def MyMethod1(request,
             target,
             options=(),
             channel_credentials=None,
@@ -88,7 +104,34 @@ class MyService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/MyService/MyMethod',
+            '/MyService/MyMethod1',
+            myservice__pb2.myRequest.SerializeToString,
+            myservice__pb2.myResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def MyMethod2(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/MyService/MyMethod2',
             myservice__pb2.myRequest.SerializeToString,
             myservice__pb2.myResponse.FromString,
             options,

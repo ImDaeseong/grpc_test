@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fmyservice.proto\"\x1c\n\tmyRequest\x12\x0f\n\x07request\x18\x01 \x01(\t\"\x1e\n\nmyResponse\x12\x10\n\x08response\x18\x01 \x01(\t22\n\tMyService\x12%\n\x08MyMethod\x12\n.myRequest\x1a\x0b.myResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fmyservice.proto\"\x1c\n\tmyRequest\x12\x0f\n\x07request\x18\x01 \x01(\t\"\x1e\n\nmyResponse\x12\x10\n\x08response\x18\x01 \x01(\t2[\n\tMyService\x12&\n\tMyMethod1\x12\n.myRequest\x1a\x0b.myResponse\"\x00\x12&\n\tMyMethod2\x12\n.myRequest\x1a\x0b.myResponse\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -26,5 +26,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_MYRESPONSE']._serialized_start=49
   _globals['_MYRESPONSE']._serialized_end=79
   _globals['_MYSERVICE']._serialized_start=81
-  _globals['_MYSERVICE']._serialized_end=131
+  _globals['_MYSERVICE']._serialized_end=172
 # @@protoc_insertion_point(module_scope)

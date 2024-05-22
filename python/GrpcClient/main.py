@@ -9,8 +9,11 @@ def myClient():
     request = myservice_pb2.myRequest(request='서버 프로시저 호출')
 
     try:
-        response = stub.MyMethod(request)
-        print('MyMethod:' + response.response)
+        response1 = stub.MyMethod1(request)
+        print(response1.response)
+
+        response2 = stub.MyMethod2(request)
+        print(response2.response)
     except grpc.RpcError as e:
         print({e})
 

@@ -1,7 +1,8 @@
 syntax ="proto3";
 
 service MyService {
-  rpc MyMethod(myRequest) returns (myResponse) {}
+  rpc MyMethod1(myRequest) returns (myResponse) {}
+  rpc MyMethod2(myRequest) returns (myResponse) {}
 }
 
 message myRequest {
