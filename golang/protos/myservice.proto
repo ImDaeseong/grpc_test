@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package myservice;
+option go_package = "ImDaeseong/myservice";
+
+service MyService {
+  rpc MyMethod1(MyRequest) returns (MyResponse) {}
+  rpc MyMethod2(MyRequest) returns (MyResponse) {}
+}
+
+message MyRequest {
+  string request = 1;
+}
+
+message MyResponse {
+  string response = 1;
+}
