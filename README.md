@@ -1,4 +1,5 @@
 ## grpc_test
 
-파이썬 : python -m grpc_tools.protoc -Iprotos --python_out=. --grpc_python_out=. protos/myservice.proto
+파이썬 : grpcio, grpcio-tools, protobuf, futures
+서비스 : python -m grpc_tools.protoc -Iprotos --python_out=. --grpc_python_out=. protos/myservice.proto
 ![server](https://github.com/ImDaeseong/grpc_test/assets/10001221/e318ab03-3185-4e6b-b188-6ce7a7a13e97)
