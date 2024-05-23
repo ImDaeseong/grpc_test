@@ -4,7 +4,7 @@ package main
 import (
 	"context"
 	"fmt"
-	pb "src/ImDaeseong/myservice"
+	pb "src/myservice"
 
 	"google.golang.org/grpc"
 )

@@ -40,12 +40,12 @@ class MyServiceStub(object):
             channel: A grpc.Channel.
         """
         self.MyMethod1 = channel.unary_unary(
-                '/MyService/MyMethod1',
+                '/myservice.MyService/MyMethod1',
                 request_serializer=myservice__pb2.myRequest.SerializeToString,
                 response_deserializer=myservice__pb2.myResponse.FromString,
                 _registered_method=True)
         self.MyMethod2 = channel.unary_unary(
-                '/MyService/MyMethod2',
+                '/myservice.MyService/MyMethod2',
                 request_serializer=myservice__pb2.myRequest.SerializeToString,
                 response_deserializer=myservice__pb2.myResponse.FromString,
                 _registered_method=True)
@@ -81,9 +81,9 @@ def add_MyServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'MyService', rpc_method_handlers)
+            'myservice.MyService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('MyService', rpc_method_handlers)
+    server.add_registered_method_handlers('myservice.MyService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -104,7 +104,7 @@ class MyService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/MyService/MyMethod1',
+            '/myservice.MyService/MyMethod1',
             myservice__pb2.myRequest.SerializeToString,
             myservice__pb2.myResponse.FromString,
             options,
@@ -131,7 +131,7 @@ class MyService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/MyService/MyMethod2',
+            '/myservice.MyService/MyMethod2',
             myservice__pb2.myRequest.SerializeToString,
             myservice__pb2.myResponse.FromString,
             options,

@@ -4,7 +4,7 @@
 // - protoc             v5.27.0--rc3
 // source: myservice.proto
 
-package myservice
+package __myservice
 
 import (
 	context "context"

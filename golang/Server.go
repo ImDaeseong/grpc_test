@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net"
 
-	pb "src/ImDaeseong/myservice"
+	pb "src/myservice"
 
 	"google.golang.org/grpc"
 )
