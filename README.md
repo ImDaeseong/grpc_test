@@ -6,5 +6,6 @@
 
 ### golang
 Protocol Buffer 컴파일러 설치 - https://github.com/protocolbuffers/protobuf/releases/tag/v27.0-rc3 <br>
+(제어판 > 시스템 > 고급 시스템 설정 > 환경 변수 > 시스템 변수 편집 > Path 편집 > 새로 만들기 > protoc.exe 파일의 경로 입력) <br>
 go get -u google.golang.org/grpc <br>
 go get -u github.com/golang/protobuf/protoc-gen-go <br>
