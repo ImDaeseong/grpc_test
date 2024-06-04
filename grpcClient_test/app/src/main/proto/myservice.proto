@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.daeseong.grpcclient_test";
+option java_outer_classname = "myserviceProto";
+
+package myservice;
+
+service MyService {
+  rpc MyMethod1(myRequest) returns (myResponse) {}
+  rpc MyMethod2(myRequest) returns (myResponse) {}
+}
+
+message myRequest {
+  string request = 1;
+}
+
+message myResponse {
+  string response = 1;
+}
