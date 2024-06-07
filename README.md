@@ -16,3 +16,11 @@ go get -u google.golang.org/protobuf <br>
 
 ### grpc 서비스 생성
 protoc -I ./protos myservice.proto --proto_path=. --go_out=. --go-grpc_out=. <br>
+
+### Node.js
+npm init -y
+npm install grpc @grpc/proto-loader
+npm install @grpc/grpc-js @grpc/proto-loader
+
+서버 시작 : node server.js
+
