@@ -18,9 +18,9 @@ go get -u google.golang.org/protobuf <br>
 protoc -I ./protos myservice.proto --proto_path=. --go_out=. --go-grpc_out=. <br>
 
 ### Node.js
-npm init -y
-npm install grpc @grpc/proto-loader
-npm install @grpc/grpc-js @grpc/proto-loader
+npm init -y <br>
+npm install grpc @grpc/proto-loader <br>
+npm install @grpc/grpc-js @grpc/proto-loader <br>
 
 서버 시작 : node server.js
 
